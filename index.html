@@ -277,6 +277,22 @@
             });
         }
 
+        // 检查坦克与墙壁的碰撞
+        function checkWallCollision(newX, newY) {
+            // 边界检查
+            if (newX < 0 || newX + player.width > canvas.width) return true;
+            if (newY < 0 || newY + player.height > canvas.height) return true;
+
+            // 墙壁碰撞检查
+            for (let wall of walls) {
+                if (newX < wall.x + wall.width && newX + player.width > wall.x &&
+                    newY < wall.y + wall.height && newY + player.height > wall.y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         // 更新玩家位置
         function updatePlayer() {
             let newX = player.x;
@@ -299,11 +315,11 @@
                 player.direction = 'right';
             }
 
-            // 边界检查
-            if (newX >= 0 && newX + player.width <= canvas.width) {
+            // 边界和墙壁碰撞检查
+            if (!checkWallCollision(newX, player.y)) {
                 player.x = newX;
             }
-            if (newY >= 0 && newY + player.height <= canvas.height) {
+            if (!checkWallCollision(player.x, newY)) {
                 player.y = newY;
             }
 
