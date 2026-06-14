@@ -4,7 +4,7 @@
 
 ## 🕹️ 在线演示
 
-[点击此处在 GitHub Pages 上游玩](https://你的用户名.github.io/tank-battle)
+[点击此处在 GitHub Pages 上游玩](https://yangxiaomingTJU.github.io/tank-battle)
 
 ## 🎯 游戏说明
 
